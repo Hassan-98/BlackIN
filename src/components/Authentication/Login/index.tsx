@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 //= Utils
@@ -15,17 +15,24 @@ export default function LoginForm() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const searchParams = useSearchParams();
 
   async function handleLogin(event: React.MouseEvent<HTMLFormElement>) {
     event.preventDefault();
+    const uid = searchParams.get('uid');
 
     if (!email || !password) {
       toaster.error('Please fill in all fields.');
       return;
     }
 
+    if (!uid) {
+      toaster.error('Uid is required.');
+      return;
+    }
+
     const stopLoading = toaster.startLoading('Logging in...');
-    const response = await loginWithEmailAndPassword({ email, password, uid: '1231' /* uid is static here */ });
+    const response = await loginWithEmailAndPassword({ email, password, uid });
 
     if (response && response.token) {
       toaster.success('Welcome back.');
