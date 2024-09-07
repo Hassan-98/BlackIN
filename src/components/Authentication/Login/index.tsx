@@ -32,6 +32,8 @@ export default function LoginForm() {
       setTimeout(() => {
         router.push('/');
       }, 500);
+    } else {
+      toaster.error('Invalid email or password.');
     }
 
     stopLoading();
