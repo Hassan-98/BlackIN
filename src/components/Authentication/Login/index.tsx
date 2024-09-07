@@ -29,7 +29,9 @@ export default function LoginForm() {
 
     if (response && response.token) {
       toaster.success('Welcome back.');
-      router.push('/');
+      setTimeout(() => {
+        router.push('/');
+      }, 500);
     }
 
     stopLoading();

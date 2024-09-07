@@ -6,6 +6,11 @@
   align-items: center;
   height: calc(100vh - 90px);
 
+  @include xs {
+    height: auto;
+    margin-top: 50px;
+  }
+
   .login__form {
     background-color: var(--background-color);
     padding: 40px 60px;
@@ -13,13 +18,24 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 500px;
 
+    @include xs {
+      width: calc(100% - 20px);
+      padding: 30px;
+    }
+
     .logo {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 5px;
-      font-size: 18px;
       color: var(--text-color);
+
+      @include xs {
+        img {
+          width: 120px;
+          height: 80px;
+        }
+      }
     }
 
     h2 {
@@ -27,6 +43,10 @@
       margin-bottom: 30px;
       color: var(--text-color);
       text-align: center;
+
+      @include xs {
+        font-size: 26px;
+      }
     }
 
     .form_field {
