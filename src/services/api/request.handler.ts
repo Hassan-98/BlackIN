@@ -1,24 +1,24 @@
-import { AxiosRequestConfig } from 'axios';
 //= Axios Util
-import { clientWithAuthorizationHeader, clientNormal } from '@/utils/axios';
+import { clientWithAuthorizationHeader, clientNormal } from './axios';
 //= Toasts
 import { toaster } from '@/utils/toaster';
+//= Types
+import { type AxiosRequestConfig } from 'axios';
 
-interface Options {
-  config?: AxiosRequestConfig;
+interface RequestOptions {
   body?: unknown;
-  formdata?: FormData;
+  config?: AxiosRequestConfig;
   withAuthorizationHeader?: boolean;
 }
 
 export interface Response<T> {
-  message: string | string[];
   success: boolean;
   data?: T;
+  message: string;
 }
 
 class API_HANDLER {
-  async Get<T>(endpoint: string, options?: Options): Promise<T | undefined> {
+  async Get<T>(endpoint: string, options?: RequestOptions): Promise<T | undefined> {
     const config = options?.config || {};
 
     try {
@@ -29,7 +29,7 @@ class API_HANDLER {
     }
   }
 
-  async Post<T>(endpoint: string, options: Options): Promise<T | undefined> {
+  async Post<T>(endpoint: string, options: RequestOptions): Promise<T | undefined> {
     const config = options?.config;
     const body = options?.body || {};
 
@@ -41,7 +41,7 @@ class API_HANDLER {
     }
   }
 
-  async Patch<T>(endpoint: string, options: Options): Promise<T | undefined> {
+  async Patch<T>(endpoint: string, options: RequestOptions): Promise<T | undefined> {
     const config = options?.config || {};
     const body = options?.body || {};
 
@@ -53,7 +53,7 @@ class API_HANDLER {
     }
   }
 
-  async Put<T>(endpoint: string, options: Options): Promise<T | undefined> {
+  async Put<T>(endpoint: string, options: RequestOptions): Promise<T | undefined> {
     const config = options?.config || {};
     const body = options?.body || {};
 
@@ -65,9 +65,9 @@ class API_HANDLER {
     }
   }
 
-  async Delete<T>(endpoint: string, options?: Options): Promise<T | undefined> {
+  async Delete<T>(endpoint: string, options?: RequestOptions): Promise<T | undefined> {
     const config = options?.config || {};
-    const body = options?.formdata ? options?.formdata : options?.body || {};
+    const body = options?.body || {};
 
     try {
       const response = await (options?.withAuthorizationHeader ? await clientWithAuthorizationHeader() : await clientNormal()).delete<T>(endpoint, { ...config, data: body });
