@@ -24,7 +24,7 @@ export const loginWithEmailAndPassword = async (payload: ILoginPayload) => {
   /**
    * Simulate a real API call happend
   **/
-  if (payload.email === 'admin@gmail.com' && payload.password === '12345678') {
+  if (payload.email === 'admin@admin.com' && payload.password === '12345678') {
     const token = 'one-hand1234';
     saveTokenToCookies(token);
 
