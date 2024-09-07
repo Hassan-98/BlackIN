@@ -1,0 +1,23 @@
+li[data-type="error"] {
+  background-color: var(--danger-color) !important;
+  border-color: rgba(#000, 0.2) !important;
+  color: #252525;
+}
+
+li[data-type="success"] {
+  background-color: var(--success-color) !important;
+  border-color: rgba(#000, 0.2) !important;
+  color: #252525;
+}
+
+li[data-type="loading"] {
+  background-color: var(--info-color) !important;
+  border-color: rgba(#000, 0.1) !important;
+  color: #fff;
+
+  .sonner-spinner {
+    * {
+      background-color: #fff;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+//==> Mixins
+@import "./mixins";
+//==> Variables
+@import "./variables";
+//==> Global Styles
+@import "./container";
+@import "./toaster";
+
+/***************  { General Styles For Elements }   *****************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  color: var(--text-color);
+  font-family: var(--font-family);
+  background-color: var(--body-color);
+  scroll-behavior: smooth;
+}
+
+/*****************************************\ Selection Reset \**************************************/
+
+::selection {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+  background-color: rgb(179, 188, 204);
+}

@@ -1,0 +1,73 @@
+@import "@/styles/mixins";
+
+.login__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 90px);
+
+  .login__form {
+    background-color: var(--background-color);
+    padding: 40px 60px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-size: 18px;
+      color: var(--text-color);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: var(--text-color);
+      text-align: center;
+    }
+
+    .form_field {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: var(--text-color);
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid var(--primary-color);
+        transition: border-color 0.3s;
+        background-color: transparent;
+        color: var(--text-color);
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    button {
+      display: block;
+      width: 150px;
+      margin-inline: auto;
+      margin-top: 30px;
+      padding: 12px 0;
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}

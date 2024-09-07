@@ -1,0 +1,50 @@
+/****************| Media Query Mixins |****************/
+$xxl-size: 1600px;
+$xl-size: 1400px;
+$lg-size: 1280px;
+$md-size: 991px;
+$sm-size: 767px;
+$xs-size: 575px;
+$xxs-size: 399px;
+
+@mixin xxl {
+  @media (max-width: $xxl-size) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (max-width: $xl-size) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: $lg-size) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: $md-size) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: $sm-size) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: $xs-size) {
+    @content;
+  }
+}
+
+@mixin xxs {
+  @media (max-width: $xxs-size) {
+    @content;
+  }
+}
